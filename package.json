@@ -1,0 +1,62 @@
+{
+  "name": "dsh-context-manager",
+  "version": "0.1.0",
+  "description": "Context capacity and compaction policy manager: global defaults, per provider/model overrides, and per-session control with compression charts.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./backend": "./backend.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "backend.js",
+    "client.js",
+    "lib/*.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": [
+        "./cordis.patch.yml"
+      ]
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-compaction": "*",
+    "@deepseek-ai/dsh-compaction-basic": "*",
+    "@deepseek-ai/dsh-home-paths": "*",
+    "@deepseek-ai/dsh-llm": "*"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "cordis",
+    "plugin",
+    "context",
+    "compaction"
+  ],
+  "author": "DeepSlacking",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeepSlacking/dsh-context-manager.git"
+  },
+  "license": "MIT"
+}

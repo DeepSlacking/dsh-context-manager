@@ -1,0 +1,22 @@
+# Context manager bundle patch.
+#
+# 1. The host row provides the `contextManager` service (policy store, JSON API
+#    for the Web client, /compact command) and compiles the profile-wide
+#    compaction backend from that policy.
+# 2. The shipped compaction backend is mounted inside each Agent preset's
+#    isolated `compaction` group, where no Loader patch can address a nested
+#    row by id. The host row provides the `contextManagerGate` service, and the
+#    `inject` additions below make every preset declaration wait for it. Once
+#    active, the host row disables the nested shipped rows while each preset
+#    declaration's config resolves, so the host-plane backend is authoritative.
+- insert:
+    - id: context-manager
+      name: dsh-context-manager
+- id: preset-standard
+  inject: [contextManagerGate]
+- id: preset-ptc
+  inject: [contextManagerGate]
+- id: preset-minimal
+  inject: [contextManagerGate]
+- id: preset-cordis
+  inject: [contextManagerGate]

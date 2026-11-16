@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Context manager",
+    "description": "Manages context capacity, compaction thresholds, protected history, strategies, and the summarization model for the whole profile, per provider/model, and per session, with compression charts."
+  }
+}
