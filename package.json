@@ -1,6 +1,6 @@
 {
   "name": "dsh-context-manager",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Context capacity and compaction policy manager: global defaults, per provider/model overrides, and per-session control with compression charts.",
   "type": "module",
   "main": "index.js",
